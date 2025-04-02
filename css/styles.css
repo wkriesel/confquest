@@ -1,0 +1,469 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f0f3fc;
+  background-image: linear-gradient(to bottom right, #f0f3fc, #e5eaf9);
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#user-info {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #4154f1;
+  font-weight: bold;
+  background-color: rgba(65, 84, 241, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #4154f1;
+  margin-bottom: 0.5rem;
+  text-shadow: 0px 2px 4px rgba(65, 84, 241, 0.2);
+}
+
+.tagline {
+  font-size: 1.1rem;
+  color: #4f4f4f;
+  font-style: italic;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #2e37a6;
+}
+
+/* Login Screen */
+.login-form {
+  background-color: white;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(65, 84, 241, 0.15);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.conference-dates {
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.login-input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.day-selection {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.day-button {
+  background-color: #e9ecef;
+  color: #333;
+  padding: 0.5rem 1.2rem;
+}
+
+.day-button.selected {
+  background-color: #4154f1;
+  color: white;
+  box-shadow: 0 2px 5px rgba(65, 84, 241, 0.4);
+}
+
+/* Avatar Selection */
+.avatar-selection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.avatar {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(65, 84, 241, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  border: 1px solid rgba(65, 84, 241, 0.1);
+}
+
+.avatar:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.avatar.selected {
+  border: 3px solid #4154f1;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(65, 84, 241, 0.2);
+}
+
+.avatar-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.avatar h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #2e37a6;
+}
+
+.avatar p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+button {
+  background-color: #4154f1;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 2px 4px rgba(65, 84, 241, 0.3);
+}
+
+button:hover {
+  background-color: #2e37a6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(65, 84, 241, 0.4);
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Quest Screen */
+.profile-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#user-avatar {
+  font-size: 2rem;
+  margin-right: 1rem;
+  background-color: #f1f3f5;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.xp-container {
+  flex-grow: 1;
+}
+
+.xp-bar {
+  height: 15px;
+  background-color: #e9ecef;
+  border-radius: 10px;
+  margin-bottom: 0.3rem;
+  overflow: hidden;
+}
+
+.xp-progress {
+  height: 100%;
+  background-color: #00c1e0;
+  width: 0%;
+  transition: width 1s ease-in-out;
+  box-shadow: 0 0 10px rgba(0, 193, 224, 0.5);
+}
+
+.xp-text {
+  font-size: 0.9rem;
+  text-align: right;
+  color: #666;
+}
+
+/* Quest List */
+#quest-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.quest-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1.2rem;
+  box-shadow: 0 3px 8px rgba(65, 84, 241, 0.1);
+  transition: all 0.3s;
+  border: 1px solid rgba(65, 84, 241, 0.05);
+}
+
+.quest-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(65, 84, 241, 0.15);
+}
+
+.bonus-quest {
+  background-color: #fff7e8;
+  border: 2px dashed #ffa200;
+  box-shadow: 0 4px 12px rgba(255, 162, 0, 0.15);
+}
+
+.bonus-label {
+  font-weight: bold;
+  color: #f55f1d;
+  text-shadow: 0px 1px 1px rgba(245, 95, 29, 0.2);
+}
+
+.bonus-complete {
+  background-color: #ffa200;
+  box-shadow: 0 2px 5px rgba(255, 162, 0, 0.4);
+}
+
+.quest-text {
+  margin-bottom: 1rem;
+}
+
+.quest-complete {
+  opacity: 0.6;
+  position: relative;
+}
+
+.quest-complete::after {
+  content: "✓ COMPLETED";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-15deg);
+  font-size: 1.5rem;
+  color: #00c1e0;
+  font-weight: bold;
+  border: 3px solid #00c1e0;
+  padding: 0.3rem 0.8rem;
+  border-radius: 5px;
+  background-color: rgba(0, 193, 224, 0.1);
+}
+
+.quest-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.complete-button {
+  background-color: #00c1e0;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+/* Reflection Form */
+.reflection-container {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.reflection-container h3 {
+  color: #3a0ca3;
+  margin-bottom: 1rem;
+}
+
+textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  resize: vertical;
+}
+
+.photo-upload-button {
+  display: inline-block;
+  background-color: #e9ecef;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.reflection-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+#save-reflection {
+  background-color: #4cc9f0;
+}
+
+#skip-reflection {
+  background-color: #adb5bd;
+}
+
+/* Reflections Screen */
+#reflection-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.reflection-entry {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1.2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.reflection-quest {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #3a0ca3;
+}
+
+.reflection-content {
+  margin-bottom: 1rem;
+}
+
+.reflection-photo {
+  max-width: 100%;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+}
+
+.reflection-date {
+  font-size: 0.8rem;
+  color: #666;
+  text-align: right;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  position: relative;
+}
+
+.footer-buttons {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#day-switcher {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border-top: 3px solid #4154f1;
+  padding: 1.5rem;
+  box-shadow: 0 -4px 15px rgba(65, 84, 241, 0.2);
+  z-index: 100;
+  text-align: center;
+}
+
+#day-switcher h3 {
+  color: #2e37a6;
+  margin-bottom: 0.5rem;
+}
+
+#day-switcher p {
+  color: #666;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.day-switch-button {
+  background-color: #e9ecef;
+  color: #333;
+  padding: 0.5rem 1.2rem;
+  margin: 0 0.5rem;
+}
+
+.day-switch-button.current {
+  border: 2px solid #4154f1;
+  background-color: #4154f1;
+  color: white;
+  font-weight: bold;
+}
+
+#cancel-switch {
+  background-color: #adb5bd;
+  margin-top: 1rem;
+}
+
+.nav-button {
+  background-color: #4154f1;
+}
+
+/* Utility Classes */
+.hidden {
+  display: none;
+}
+
+.hidden-screen {
+  display: none;
+}
+
+.active-screen {
+  display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .avatar-selection {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  .reflection-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

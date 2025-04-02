@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ConfQuest - AI Show Conference April 5-7</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div id="login" class="active-screen">
+      <header>
+        <h1>ConfQuest</h1>
+        <p class="tagline">Level up by being your most joyful, authentic self at AI Show.</p>
+      </header>
+      
+      <div class="login-form">
+        <h2>Welcome to AI Show Conference</h2>
+        <p class="conference-dates">April 5-7, 2025</p>
+        <input type="text" id="username" placeholder="Enter your name" class="login-input">
+        <div class="day-selection">
+          <button class="day-button" data-day="1">Day 1</button>
+          <button class="day-button" data-day="2">Day 2</button>
+          <button class="day-button" data-day="3">Day 3</button>
+        </div>
+        <button id="login-button" disabled>Begin Your Quest</button>
+      </div>
+    </div>
+    <header>
+      <h1>ConfQuest</h1>
+      <p class="tagline">Level up by being your most joyful, authentic self at the conference.</p>
+      <div id="user-info" class="hidden">
+        <p>Welcome, <span id="display-username"></span> - Day <span id="display-day"></span></p>
+      </div>
+    </header>
+    
+    <div id="setup" class="hidden-screen">
+      <h2>Choose Your Strength Avatar</h2>
+      <div class="avatar-selection">
+        <div class="avatar" data-type="learner">
+          <div class="avatar-icon">🎓</div>
+          <h3>The Learner</h3>
+          <p>You thrive on acquiring knowledge and continuous improvement.</p>
+        </div>
+        <div class="avatar" data-type="strategic">
+          <div class="avatar-icon">🧠</div>
+          <h3>The Strategic</h3>
+          <p>You excel at spotting patterns and creating effective approaches.</p>
+        </div>
+        <div class="avatar" data-type="relator">
+          <div class="avatar-icon">🫂</div>
+          <h3>The Relator</h3>
+          <p>You build deep, genuine connections with people around you.</p>
+        </div>
+        <div class="avatar" data-type="discoverer">
+          <div class="avatar-icon">🔍</div>
+          <h3>The Discoverer</h3>
+          <p>You collect ideas and find connections between concepts.</p>
+        </div>
+      </div>
+      <button id="start-button" disabled>Start Your Quest!</button>
+    </div>
+    
+    <div id="quests" class="hidden-screen">
+      <div class="profile-bar">
+        <div id="user-avatar"></div>
+        <div class="xp-container">
+          <div class="xp-bar">
+            <div class="xp-progress"></div>
+          </div>
+          <div class="xp-text">XP: <span id="xp-value">0</span></div>
+        </div>
+      </div>
+      
+      <h2>Today's Quests</h2>
+      <div id="quest-list"></div>
+      
+      <div class="reflection-container hidden" id="reflection-form">
+        <h3>Quest Complete! 🎉</h3>
+        <p>What surprised you about this experience?</p>
+        <textarea id="reflection-text" rows="3" placeholder="Write a brief reflection..."></textarea>
+        <label for="reflection-photo" class="photo-upload-button">📷 Add Photo</label>
+        <input type="file" id="reflection-photo" accept="image/*" class="hidden">
+        <div class="reflection-buttons">
+          <button id="save-reflection">Save Reflection</button>
+          <button id="skip-reflection">Skip</button>
+        </div>
+      </div>
+    </div>
+    
+    <div id="reflections" class="hidden-screen">
+      <h2>Your Quest Log</h2>
+      <div id="reflection-list"></div>
+      <button id="back-to-quests">Back to Quests</button>
+    </div>
+  </div>
+  
+  <footer>
+    <div class="footer-buttons">
+      <button id="toggle-reflections" class="hidden">View Quest Log</button>
+      <div id="day-navigation" class="hidden">
+        <button id="switch-day" class="nav-button">Switch Day</button>
+      </div>
+    </div>
+    
+    <div id="day-switcher" class="hidden">
+      <h3>Switch Conference Day</h3>
+      <p>Your progress for the current day will be saved</p>
+      <div class="day-selection">
+        <button class="day-switch-button" data-day="1">Day 1</button>
+        <button class="day-switch-button" data-day="2">Day 2</button>
+        <button class="day-switch-button" data-day="3">Day 3</button>
+      </div>
+      <button id="cancel-switch">Cancel</button>
+    </div>
+  </footer>
+  
+  <script src="js/app.js"></script>
+</body>
+</html>
